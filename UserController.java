@@ -6,6 +6,7 @@ public class UserController {
         this.userService = new UserService();
         this.getUsers("List User");
         this.addUser();
+        this.deletUser();
     }
 
     void getUsers(String param){
@@ -17,5 +18,12 @@ public class UserController {
        User user = new User(10, "newUser");
        this.userService.addUser(user);
        this.getUsers("Added User");
+    }
+
+    void deletUser(){
+        boolean isUser = this.userService.deletUser(10);
+        System.out.println(isUser);
+        if(isUser) this.getUsers("Delete op");
+
     }
 }
